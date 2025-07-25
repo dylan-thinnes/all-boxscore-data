@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+curl http://10.38.43.76:8080/ | grep -E 'href="[12]' | cut -f2 -d'"' | shuf -n10 | sed 's|^|http://10.38.43.76:8080/|' | xargs -l wget
