@@ -17,10 +17,21 @@ def score_diffs:
   | map(transpose | map(.[1] - .[0]))
   ;
 
+def spread_quarters:
+    reduce .[] as $item
+      ( {"rows": [], "quarter": null}
+      ; (($item.quarter | numbers) // .quarter) as $new_quarter
+      | .quarter |= $new_quarter
+      | .rows |= . + [$item | .quarter = $new_quarter]
+      )
+  | .rows
+  ;
+
 def annotated_rows:
     [.rows, score_diffs]
   | transpose
   | map(.[0].score_diff = .[1] | .[0])
+  | spread_quarters
   ;
 
 def row_summary:
@@ -43,4 +54,4 @@ def rows_summary:
   ;
 
   .rows = annotated_rows
-| .summary = rows_summary
+#| .summary = rows_summary

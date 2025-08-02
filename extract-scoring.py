@@ -6,7 +6,7 @@ import re
 
 def convert_row(row):
     dat = {}
-    cells = row.find_all('td')
+    cells = row.find_all('td') + row.find_all('th')
     for cell in cells:
         try:
             cell_val = int(cell.text)
