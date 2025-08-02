@@ -1,5 +1,4 @@
-Running the following commands (first command will take an hour, second command
-will take 3 days, last command will take half a minute).
+This repo makes the following scripts available, usually called in this order:
 
 ```sh
 # Downloading 119 leagues, 10s/league (rate limiting) gives 19m, 50s to run this command
