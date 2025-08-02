@@ -1,9 +1,16 @@
 Running the following commands (first command will take an hour, second command
 will take 3 days, last command will take half a minute).
 
-```bash
+```sh
+# Downloading 119 leagues, 10s/league (rate limiting) gives 19m, 50s to run this command
 ./download-all-leagues
+# Downloading 17950 games, 10s/game (rate limiting) gives 2d, 1h, 51m, 40s to run this command
 ./download-all-games
-# ./extract-scoring.py *.htm
-parallel -n 10 ./extract-scoring.py -- *.htm
+# Extract the scoring data from the HTML for each game
+# Faster version ./extract-scoring.py *.htm
+parallel -n 10 ./extract-scoring.py -- *.htm > output.json
+# Extract actual plays and a summary via jq
+./extract-plays-and-summary.jq output.json
+# Validate plays, print any play data that is inconsistent with its final score
+./extract-plays-and-summary.jq output.json | ./validate-scoring.jq
 ```
