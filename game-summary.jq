@@ -8,13 +8,39 @@ def score_names:
   }
   ;
 
-  map([.vis_team_score, .home_team_score])    # extract both running scores after event
-| [[0,0]] + .                                 # pad with the starting 0,0 score
-| [.[0:-1], .[1:]] | transpose                # pair off consecutive scores
-| map(transpose) | map(map(.[1] - .[0]))      # subtract consecutive scores from each other to get delta of each event
-| map(map(score_names[tostring]))             # map each delta to a score name, null if no score exists
-| map
-  ( "visiting team scores " + (.[0] | values) # prepend "visiting team scores" to non-null score events on left side of scoreboard
-  , "home team scores " + (.[1] | values)     # prepend "home team scores" to non-null score events on left side of scoreboard
-  )
-| .[]                                         # pull all summaries out of array
+def score_diffs:
+    .rows
+  | map([.vis_team_score, .home_team_score])
+  | [[0,0]] + .
+  | [.[0:-1], .[1:]]
+  | transpose
+  | map(transpose | map(.[1] - .[0]))
+  ;
+
+def annotated_rows:
+    [.rows, score_diffs]
+  | transpose
+  | map(.[0].score_diff = .[1] | .[0])
+  ;
+
+def row_summary:
+    .score_diff
+  | map(score_names[tostring])
+  | ( "Visiting team scores " + (.[0] | values)
+    , "Home team scores " + (.[1] | values)
+    )
+  ;
+
+def padded:
+    tostring
+  | " " + ([range(2 - length)] | map(" ") | join("")) + . + " "
+  ;
+
+def rows_summary:
+    .rows
+  | map("\(.vis_team_score | padded) - \(.home_team_score | padded) | " + row_summary)
+  | ["AWAY | HOME | SUMMARY", .[]]
+  ;
+
+  .rows = annotated_rows
+| .summary = rows_summary
