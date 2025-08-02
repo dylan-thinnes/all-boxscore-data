@@ -9,8 +9,6 @@ will take 3 days, last command will take half a minute).
 # Extract the scoring data from the HTML for each game
 # Faster version ./extract-scoring.py full-download/*.htm
 parallel -n 10 ./extract-scoring.py -- full-download/*.htm > output.json
-# Extract actual plays and a summary via jq
-./extract-plays-and-summary.jq output.json
-# Validate plays, print any play data that is inconsistent with its final score
-./extract-plays-and-summary.jq output.json | ./validate-scoring.jq
+# Extract actual plays and a summary via jq, along with validation info
+./extract-plays-and-summary.jq output.json > full.json
 ```
