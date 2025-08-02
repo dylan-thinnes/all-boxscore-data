@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p games
+./extract-games-from-leagues.py leagues/* | jq '.[] | .boxscore_url' | sort | uniq | while read url; do
+  echo "Downloading $url ..."
+  wget "$url"
+  for i in `seq 10`; do echo -n "$i... "; sleep 1; done
+  echo
+done

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p leagues
+./all-leagues.py | while read year league; do
+  league_suffix="_$league"
+  if [[ "$league" == NFL ]]; then
+    league_suffix=""
+  fi
+  url="https://www.pro-football-reference.com/years/${year}${league_suffix}/games.htm"
+  echo "Downloading $url ..."
+  curl "$url" > leagues/$year-$league
+  for i in `seq 10`; do echo -n "$i... "; sleep 1; done
+  echo
+done
