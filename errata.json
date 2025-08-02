@@ -1,0 +1,98 @@
+{
+  "192010100cbd.htm": {
+    "class": "certain fix",
+    "note": "quarter 4 touchdown should count for 7"
+  },
+  "192011070pul.htm": {
+    "class": "insufficient data"
+  },
+  "192011280cht.htm": {
+    "class": "insufficient data"
+  },
+  "192011280rii.htm": {
+    "class": "uncertain fix",
+    "note": "touchdown in 3rd quarter"
+  },
+  "192012180ric.htm": {
+    "class": "insufficient data"
+  },
+  "192012190cst.htm": {
+    "class": "insufficient data"
+  },
+  "192110090ecg.htm": {
+    "class": "certain fix",
+    "note": "make first touchdown count for 7, not 28"
+  },
+  "192110160bff.htm": {
+    "class": "certain fix",
+    "note": "2nd touchdown in 1st quarter should count for 7"
+  },
+  "192111060chi.htm": {
+    "class": "certain fix",
+    "note": "make Tigers' 2nd quarter touchdown start at 7, reorder"
+  },
+  "192111060gnb.htm": {
+    "class": "certain fix",
+    "note": "make Giants' 4th quarter touchdown count for 6, not 41"
+  },
+  "192111270ecg.htm": {
+    "class": "insufficient data"
+  },
+  "192210290tol.htm": {
+    "class": "insufficient data"
+  },
+  "192211050rac.htm": {
+    "class": "insufficient data"
+  },
+  "192310070crd.htm": {
+    "class": "insufficient data"
+  },
+  "192311110sla.htm": {
+    "class": "certain fix",
+    "note": "quarter 3 touchdown should count for 7, not 6"
+  },
+  "192311250cli.htm": {
+    "class": "uncertain fix",
+    "note": "one of two Bulldog touchdowns in 3rd quarter should be 7 points instead of 6, one of two Bulldog touchdowns in 4th quarter should be 7 points instead of 6"
+  },
+  "192411080fyj.htm": {
+    "class": "insufficient data"
+  },
+  "192611200fyj.htm": {
+    "class": "insufficient data"
+  },
+  "192710220fyj.htm": {
+    "class": "certain fix",
+    "note": "reverse scoring order"
+  },
+  "193310180phi.htm": {
+    "class": "certain fix",
+    "note": "reverse scoring order"
+  },
+  "193410220det.htm": {
+    "class": "certain fix",
+    "note": "reverse scoring order"
+  },
+  "193710310crd.htm": {
+    "class": "certain fix",
+    "note": "reverse scoring order and correct results to only count the Rams' result in Q4"
+  },
+  "192011250chb.htm": {
+    "class": "no data"
+  },
+  "192010170crd.htm": {
+    "class": "no data"
+  },
+  "192011070rch.htm": {
+    "class": "no data"
+  },
+  "192010100dhr.htm": {
+    "class": "no data"
+  },
+  "192010100rch.htm": {
+    "class": "no data"
+  },
+  "192211120lou.htm": {
+    "class": "no data"
+  }
+}
