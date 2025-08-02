@@ -29,7 +29,7 @@
   },
   "192111060chi.htm": {
     "class": "certain fix",
-    "note": "make Tigers' 2nd quarter touchdown start at 7, reorder"
+    "note": "make Staleys 1st quarter touchdown worth 6, make Tigers' 2nd quarter touchdown start at 7, reorder"
   },
   "192111060gnb.htm": {
     "class": "certain fix",
@@ -94,5 +94,13 @@
   },
   "192211120lou.htm": {
     "class": "no data"
+  },
+  "192410260cib.htm": {
+    "class": "uncertain fix",
+    "note": "probably remove quarter 4 touchdown by Ben Jones"
+  },
+  "195811020clt.htm": {
+    "class": "certain fix",
+    "note": "make 3rd quarter 2nd Colts touchdown worth 7 instead of 14, then 4th quarter touchdown will be correctly scored as 7 instead of 0"
   }
 }
